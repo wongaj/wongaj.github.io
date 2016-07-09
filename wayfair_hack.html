@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Not a good hack</title>
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
 	<script src="tracking.js-master/build/tracking-min.js"></script>
 	<script src="tracking.js-master/build/data/face-min.js"></script>
 </head>
@@ -11,20 +12,31 @@
     margin: auto;
     position: absolute;
     top: 0; left: 0; bottom: 0; right: 0;
+    z-index: 1;
+  }
+  #warning {
+    margin: 0 auto;
+    position: absolute;
+    color: blue;
   }
   </style>
 <body>
+    Put in a custom image link here:
+    <input type='text' name='imageurl' id="imageurl">
+  <button id='submitbutton'>submit</button>
+  <button id='imageresetbutton'>Reset Image</button>
   <video id="video" width="480" height="360" preload autoplay loop muted></video>
   <canvas id="canvas" width="480" height="360"></canvas>
 
   <script>
-    window.onload = function() {
+    var wayfairlogo = 'https://yt3.ggpht.com/-8IhURAil7DE/AAAAAAAAAAI/AAAAAAAAAAA/T31wq0UEXDU/s900-c-k-no-rj-c0xffffff/photo.jpg';
+    var img = new Image();
+    img.src = wayfairlogo;
+
+    window.onload = function () {
       var video = document.getElementById('video');
       var canvas = document.getElementById('canvas');
       var context = canvas.getContext('2d');
-      var img = new Image();
-      img.src = 'https://yt3.ggpht.com/-8IhURAil7DE/AAAAAAAAAAI/AAAAAAAAAAA/T31wq0UEXDU/s900-c-k-no-rj-c0xffffff/photo.jpg';
-
       var tracker = new tracking.ObjectTracker('face');
       tracker.setInitialScale(4);
       tracker.setStepSize(1);
@@ -36,14 +48,20 @@
         context.clearRect(0, 0, canvas.width, canvas.height);
 
         event.data.forEach(function(rect) {
-          context.drawImage(img,rect.x, rect.y, rect.width, rect.height);
+          context.drawImage(img,rect.x, rect.y, rect.width, (rect.width * (img.height/img.width)));
           context.font = '11px Helvetica';
           context.fillStyle = "#7EEA8B";
           context.fillText('give me some', rect.x + rect.width + 5, rect.y + 11);
           context.fillText('prize money', rect.x + rect.width + 5, rect.y + 22);
         });
       });
-    };
+    }
+    document.getElementById('submitbutton').onclick = function(){
+      img.src = document.getElementById('imageurl').value;
+    }
+    document.getElementById('imageresetbutton').onclick = function(){
+      img.src = wayfairlogo;
+    }
   </script>
 </body>
 </html>
