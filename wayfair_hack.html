@@ -6,30 +6,57 @@
   <link rel="shortcut icon" type="image/png" href="favicon.png">
 	<script src="tracking.js-master/build/tracking-min.js"></script>
 	<script src="tracking.js-master/build/data/face-min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
   <style>
   video, canvas {
     margin: auto;
     position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
-    z-index: 1;
+    left: 0; right: 0;
   }
-  #warning {
-    margin: 0 auto;
-    position: absolute;
-    color: blue;
+  .center{
+    text-align: center;
+    margin: 10px;
   }
   </style>
 <body>
-    Put in a custom image link here:
-    <input type='text' name='imageurl' id="imageurl">
-  <button id='submitbutton'>submit</button>
-  <button id='imageresetbutton'>Reset Image</button>
-  <video id="video" width="480" height="360" preload autoplay loop muted></video>
-  <canvas id="canvas" width="480" height="360"></canvas>
+  <div class='center'>
+    <p>
+      Put in a custom image link here:
+      <input type='text' name='imageurl' id="imageurl">
+      <button id='submitbutton'>submit</button>      
+    </p>
+    <button id='imageresetbutton'>Reset Image</button>
+    <p>
+      New top text:
+      <input type='text' name='newtoptext' id='newtoptext'>
+      <button id='submittoptext'>Submit</button>
+    </p>
+    <p>
+      New bottom text:
+      <input type='text' name='newbottext' id='newbottext'>
+      <button id='submitbottext'>Submit</button>
+    </p>
+    <button id='textreset'>reset text</button>
+  </div>
+
+  <div>
+    <video id="video" width="480" height="360" preload autoplay loop muted></video>
+    <canvas id="canvas" width="480" height="360"></canvas>    
+  </div>
+
 
   <script>
     var wayfairlogo = 'https://yt3.ggpht.com/-8IhURAil7DE/AAAAAAAAAAI/AAAAAAAAAAA/T31wq0UEXDU/s900-c-k-no-rj-c0xffffff/photo.jpg';
+    var toptext = 'give me some';
+    var bottext = 'prize money';
     var img = new Image();
     img.src = wayfairlogo;
 
@@ -48,11 +75,13 @@
         context.clearRect(0, 0, canvas.width, canvas.height);
 
         event.data.forEach(function(rect) {
-          context.drawImage(img,rect.x, rect.y, rect.width, (rect.width * (img.height/img.width)));
+          var img_adjust_height = rect.width * (img.height/img.width);
+          var adjust_height = rect.y - ((img_adjust_height - rect.height) / 2);
+          context.drawImage(img,rect.x, adjust_height, rect.width, img_adjust_height);
           context.font = '11px Helvetica';
           context.fillStyle = "#7EEA8B";
-          context.fillText('give me some', rect.x + rect.width + 5, rect.y + 11);
-          context.fillText('prize money', rect.x + rect.width + 5, rect.y + 22);
+          context.fillText(toptext, rect.x, adjust_height - 22);
+          context.fillText(bottext, rect.x, adjust_height - 11);
         });
       });
     }
@@ -62,6 +91,17 @@
     document.getElementById('imageresetbutton').onclick = function(){
       img.src = wayfairlogo;
     }
+    document.getElementById('submittoptext').onclick = function(){
+      toptext = document.getElementById('newtoptext').value;
+    }
+    document.getElementById('submitbottext').onclick = function(){
+      bottext = document.getElementById('newbottext').value;
+    }
+    document.getElementById('textreset').onclick = function(){
+      toptext = 'give me some';
+      bottext = 'prize money';
+    }
+    doc
   </script>
 </body>
 </html>
