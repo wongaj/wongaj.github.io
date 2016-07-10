@@ -81,12 +81,19 @@
     text-align: center;
     color: red;
     font-size: 30px;
-    padding-bottom: 400px;
+    padding-bottom: 360px;
   }
   </style>
 <body>
   <div class = "container">
     <img src="wayfacelogo.png">
+
+    <div class = 'tracking'>
+      <video id="video" width="480" height="360" preload autoplay loop muted></video>
+      <canvas id="canvas" width="480" height="360"></canvas>    
+      Turn On Your Webcam
+    </div>
+
     <div class='center'>
       <div class="inputbox">
         <input type='text' name='imageurl' id="imageurl" placeholder="Image URL">
@@ -107,20 +114,14 @@
         <button id='textreset'>Reset Text</button>     
       </p>
     </div>
-
-    <div class = 'tracking'>
-      <video id="video" width="480" height="360" preload autoplay loop muted></video>
-      <canvas id="canvas" width="480" height="360"></canvas>    
-      Turn On Your Webcam
-    </div>
   </div>
 
 
 
   <script>
-    var wayfairlogo = 'https://yt3.ggpht.com/-8IhURAil7DE/AAAAAAAAAAI/AAAAAAAAAAA/T31wq0UEXDU/s900-c-k-no-rj-c0xffffff/photo.jpg';
-    var toptext = 'give me some';
-    var bottext = 'prize money';
+    var wayfairlogo = 'https://lh3.ggpht.com/rciUUXlGgLgnA3paqEdCWCedJ-p_zyrl4gFQiDOx_oSuBtXWGSTuPRbeUKazotY6sWw=w300';
+    var toptext = 'wayfair.com';
+    var bottext = 'a zillion things home';
     var img = new Image();
     img.src = wayfairlogo;
 
@@ -162,8 +163,8 @@
       bottext = document.getElementById('newbottext').value;
     }
     document.getElementById('textreset').onclick = function(){
-      toptext = 'give me some';
-      bottext = 'prize money';
+      toptext = 'wayfair.com';
+      bottext = 'a zillion things home';
     }
     doc
   </script>
