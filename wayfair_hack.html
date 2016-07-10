@@ -16,41 +16,105 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
   <style>
+  h1{
+    text-align: center;
+    font-size: 100px;
+    font-family: Palatino Linotype;
+    font-weight: bold;
+    color: #450C56;
+    margin-bottom: 20px;
+  }
   video, canvas {
     margin: auto;
     position: absolute;
     left: 0; right: 0;
   }
+  p {
+    font-size: 16px;
+  }
+  body{
+    background-color: #D8E5F2;
+    
+  }
+  button{
+    background-color: #582667;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 3px;
+    border:0;
+  }
+  input{
+    width: 300px;
+    border: 0;
+  }
+  img{
+    display: block;
+    margin: auto;
+    height: 200px;
+  }
+  canvas{
+    border: solid 2px #6E8DA5;
+  }
+  .inputbox{
+    border-radius: 4px;
+    border: solid 2px #D0D0D0;
+    font-size: 16px;
+    width:410px;
+    padding: 5px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
   .center{
     text-align: center;
     margin: 10px;
   }
+  .container{
+    background-color: white;
+    border-left: solid 2px #6E8DA5;
+    border-right: solid 2px #6E8DA5;
+  }
+  .tracking{
+    text-align: center;
+    color: red;
+    font-size: 30px;
+    padding-bottom: 400px;
+  }
   </style>
 <body>
-  <div class='center'>
-    <p>
-      Put in a custom image link here:
-      <input type='text' name='imageurl' id="imageurl">
-      <button id='submitbutton'>submit</button>      
-    </p>
-    <button id='imageresetbutton'>Reset Image</button>
-    <p>
-      New top text:
-      <input type='text' name='newtoptext' id='newtoptext'>
-      <button id='submittoptext'>Submit</button>
-    </p>
-    <p>
-      New bottom text:
-      <input type='text' name='newbottext' id='newbottext'>
-      <button id='submitbottext'>Submit</button>
-    </p>
-    <button id='textreset'>reset text</button>
+  <div class = "container">
+    <img src="wayfacelogo.png">
+    <div class='center'>
+      <div class="inputbox">
+        <input type='text' name='imageurl' id="imageurl" placeholder="Image URL">
+        <button id='submitbutton'>Submit</button>      
+      </div>
+      <p>
+        <button id='imageresetbutton'>Reset Image</button>      
+      </p>
+      <div class = "inputbox">
+        <input type='text' name='newtoptext' id='newtoptext' placeholder="Top Text">
+        <button id='submittoptext'>Submit</button>
+      </div>
+      <div class = "inputbox">
+        <input type='text' name='newbottext' id='newbottext' placeholder="Bottom Text">
+        <button id='submitbottext'>Submit</button>
+      </div>
+      <p>
+        <button id='textreset'>Reset Text</button>     
+      </p>
+    </div>
+
+    <div class = 'tracking'>
+      <video id="video" width="480" height="360" preload autoplay loop muted></video>
+      <canvas id="canvas" width="480" height="360"></canvas>    
+      Turn On Your Webcam
+    </div>
   </div>
 
-  <div>
-    <video id="video" width="480" height="360" preload autoplay loop muted></video>
-    <canvas id="canvas" width="480" height="360"></canvas>    
-  </div>
 
 
   <script>
