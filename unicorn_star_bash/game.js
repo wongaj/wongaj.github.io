@@ -93,7 +93,6 @@ function load_high_score(){
 	//find saved high score in cookies
 	high_score = 0;
 	if(document.cookie){
-		alert();
 		temp = document.cookie.split(';')[0];
 		high_score = temp.split('=')[1];
 	}
