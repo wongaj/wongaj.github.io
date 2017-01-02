@@ -1,114 +1,78 @@
-.jumbotron{
-	/*background-image: url("http://i.imgur.com/16KyCJY.jpg");
-	background-color: black;*/
-	background-image: url("http://i.imgur.com/jqxm3lT.jpg");
-	/*position: absolute;
-	height: 400px;*/
-	height: 100%;
-    background-attachment: fixed;
-    background-size: cover;
-	text-align: center;
-	margin-bottom: 0px;
-	
+img{
+	height: 10vh;
 }
 
-.jumbotron h1{
-	font-family: "Courier New";
-	font-size: 150px;
+h1{
+	font-size: 13vh;
 	font-weight: bold;
-	margin-top: 95px;
-	margin-bottom: 95px;
+	padding: 5vh;
+}
+
+h2{
+	font-size: 8vh;
+}
+
+h3{
+	font-size: 5vh;
+}
+
+li{
+	font-size: 3vh;
+	list-style-type: none;
+}
+
+a{
+	font-size: 4vh;
+	text-decoration: none;
 	color: white;
-	
+}
+a:hover{
+	color: black;
+	text-decoration: none;
 }
 
-.title{
-	font-family: "Courier New";
+.container-fluid{
 	text-align: center;
 }
 
-.title h1{
-	font-weight: bold;
-	font-size: 85px;
-	color: white;
-	margin-top: -0px;
+.images{
+	height: 35vh;
 }
-
-.title h1.head{
-	background-color: black; 
-
-}
-
-
-.title h2{
-	font-weight: bold;
-	font-size: 50px;
-}
-
-.title h3{
-	font-size: 40px;
-	font-weight: bold;
-}
-
-.title p{
-	font-size: 23px;
-}
-
-.spacing{
-	padding-top: 0px;
-	padding-bottom: 20px;
-}
-
-
 .row{
-	padding-top: 60px;
-	padding-bottom: 50px;
-	background-color: rgba(250,250,250,0.55);
+	padding: 5vh;
 }
 
-.col-xs-4{
-	text-align: center;
-	height: 80px;
+#title{
+	background-color: #B6CCFF;
 }
 
-img.back:hover{
-	background-color: rgba(250,250,250,0.5);
-	border-radius: 5px;
-
+#project1{
+	background-color: #C0E4CD;
 }
 
-p.back:hover{
-	background-color: rgba(250,250,250,0.6);
-	border-radius: 5px;
+
+#wayface{
+	background-color: #C89BEF;
 }
 
-a:link{
-	color: white;
-	text-decoration: none;
+#unicorn{
+	background-color: #67B6FF
 }
 
-a:visited{
-	color: white;
-	text-decoration: none;
+#project2{
+	background-color: #F5FDB3;
 }
 
-#name{
-	/*padding-left: 10px;
-	padding-right: 10px;*/
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-top: 10px;
-	padding-bottom: 10px;
+#uno{
+	background-color: #92D192;
 }
 
-#name:hover{
-	background-color: rgba(130,130,130,0.6);
-	border-radius: 5px;
+#music{
+	background-color: #AAAAAA;
 }
 
-#linkedin:hover{
-	background-color: rgba(0,119,181,0.5);
-	border-radius: 5px;
+#links{
+	background-color: #DEDEDE;
 }
 
 #github:hover{
@@ -116,6 +80,8 @@ a:visited{
 	border-radius: 5px;
 }
 
-#title:hover{
-	background-color: background-color: rgba(130,130,130,0.6);
+@media only screen and (orientation: landscape) {
+    img {
+        height: 7vh;
+    }
 }

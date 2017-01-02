@@ -127,8 +127,6 @@ function home_screen(){
 	$('body').append("<h1>Unicorn Star Bash</h1>");
 	$('body').append('<h2> High Score: ' + high_score + '</h2>');
 	$('body').append("<button type='button' class='game_button' onclick='start_game()'> Start Game </button>");
-	size = 0;
-	movement = 0;
 }
 
 function start_game(){
