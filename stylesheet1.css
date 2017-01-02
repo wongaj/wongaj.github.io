@@ -83,7 +83,7 @@ a:hover{
 }
 
 @media only screen and (orientation:portrait) {
-    img {
-        height: 4vh;
+    .images {
+        height: 25vh;
     }
 }
