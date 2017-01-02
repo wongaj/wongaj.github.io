@@ -16,9 +16,11 @@ h3{
 	font-size: 5vh;
 }
 
-li{
+ul,li{
 	font-size: 3vh;
 	list-style-type: none;
+    list-style-position:inside;
+    padding:0;
 }
 
 a{
@@ -80,8 +82,8 @@ a:hover{
 	border-radius: 5px;
 }
 
-@media only screen and (orientation: landscape) {
+@media only screen and (orientation:portrait) {
     img {
-        height: 7vh;
+        height: 4vh;
     }
 }
