@@ -28,7 +28,7 @@ function object(image_link, object_type, id_number){
 	this.move = function(){
 		if((this.y+11) < 100){
 			this.y = this.y +0.6;
-			if(this.x <0 || this.x > 94){
+			if(this.x <0 || this.x > 93){
 				this.direction = 0;
 			}
 			this.x = this.x + (this.direction * this.speed);
