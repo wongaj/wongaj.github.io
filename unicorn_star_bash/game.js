@@ -9,7 +9,13 @@ function object(image_link, object_type, id_number){
 	this.id = id_number;
 	this.layer = (id_number%10);
 	this.x = Math.floor(Math.random()*(85))+10;
-	this.y = 0;
+	if(this.type === "balloon"){
+		this.y = 100
+	}
+	else{
+		this.y = -11;		
+	}
+
 	if(Math.floor(Math.random()*(10))%2){
 		this.direction = 0.4;
 	}
@@ -26,8 +32,8 @@ function object(image_link, object_type, id_number){
 		document.getElementById(this.id).style.zIndex = this.layer + '';
 	}
 	this.move = function(){
-		if((this.y+11) < 100){
-			this.y = this.y +0.6;
+		if(this.type === "star" && (this.y+11) < 100){
+			this.y = this.y + 0.6;
 			if(this.x <0 || this.x > 93){
 				this.direction = 0;
 			}
@@ -35,6 +41,15 @@ function object(image_link, object_type, id_number){
 			document.getElementById(this.id).style.marginLeft = this.x + 'vw';
 			document.getElementById(this.id).style.marginTop = this.y + 'vh';
 			//update css
+		}
+		else if(this.type === "balloon" && (this.y > -11)){
+			this.y = this.y - 0.6;
+			if(this.x <0 || this.x > 93){
+				this.direction = 0;
+			}
+			this.x = this.x + (this.direction * this.speed);
+			document.getElementById(this.id).style.marginLeft = this.x + 'vw';
+			document.getElementById(this.id).style.marginTop = this.y + 'vh';
 		}
 		else{
 			this.delete_self(this.type === "star");
@@ -141,8 +156,8 @@ function start_game(){
 	}
 	$('.gamebackground').append('<span id="score">Score: ' + score + '</span>');
 	add_new_object();
-	add_objects = setInterval(add_new_object, 800);
-	object_movement = setInterval(move_objects, 33);
+	add_objects = setInterval(add_new_object, 750);
+	object_movement = setInterval(move_objects, 25);
 }
 
 function end_game(){
