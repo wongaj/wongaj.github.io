@@ -8,8 +8,7 @@ h1{
 	font-weight: bold;
 	padding-top: 10%;
 	padding-bottom: 10%;
-	background-image: url(images/titlephoto.png);
-	background-repeat: no-repeat;
+	background-color: black;
     background-attachment: fixed;
     background-size: 100vw;
 	margin: 0;
@@ -50,10 +49,6 @@ a:link, a:visited, a:active, a:hover{
 	padding-top: 4%;
 	padding-bottom: 4%;
 	margin: 0;
-}
-
-.highlight:hover{
-	background-color: #E4E3E3;
 }
 
 .col-sm-12{
