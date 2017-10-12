@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Malocchio Redentor</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <style type="text/css">
+    #Malocchio{
+        margin-top: 100px;
+    }
+    #Redentor{
+        margin-top: 100px;
+    }
+    .center{
+        margin: auto;
+        text-align: center;
+    }
+    h1{
+        margin-top: 30px;
+        font-size: 70px;
+        font-family: century;
+    }
+    body{
+        pointer-events: none;
+        background-color: black;
+        color: white;
+    }
+    </style>
+
+</head> 
+
+<body>
+    <h1 class="center">Malocchio Redentor</h1>
+    <div id="Malocchio"class="col-sm-12 col-md-6 center">
+    </div>
+
+    <div id="Redentor" class="col-sm-12 col-md-6 center">   
+    </div>
+
+    <script>
+      // 2. This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var Malocchio;
+      var Redentor;
+      var Malocchio_data = {'id': 'Malocchio', 'videoId': 'upELAvSBlCM', 'start': 150, 'end': 161};
+      var Redentor_data = {'id': 'Redentor', 'videoId': 'axkqzEk_SBM', 'start': 227, 'end': 251 };
+      function onYouTubeIframeAPIReady() {
+        Malocchio = createiFramePlayer(Malocchio_data);
+        Redentor = createiFramePlayer(Redentor_data);
+      }
+
+      function createiFramePlayer(playerData){
+        return new YT.Player(playerData.id, {
+          playerVars: { 'autoplay': 1, 'controls': 0, 'start': playerData.start, 'end': playerData.end },
+          videoId: playerData.videoId,
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        if(event.target.getVideoData().video_id === Malocchio_data.videoId){
+            event.target.setVolume(10);
+        }
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data === YT.PlayerState.ENDED) {
+            if(event.target.getVideoData().video_id === Malocchio_data.videoId){
+                Malocchio.loadVideoById({
+                    videoId: Malocchio_data.videoId,
+                    startSeconds: Malocchio_data.start,
+                    endSeconds: Malocchio_data.end
+                });
+            }
+            else{
+                Redentor.loadVideoById({
+                    videoId: Redentor_data.videoId,
+                    startSeconds: Redentor_data.start,
+                    endSeconds: Redentor_data.end
+                });
+            }
+        }
+      }
+    </script>
+</body>
