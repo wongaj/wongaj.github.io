@@ -1,21 +1,21 @@
 body {
-    font-family: monospace;
-    font-size: 14px;
+  font-family: monospace;
+  font-size: 14px;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .container {
-    margin: auto;
-    display: table;
+  margin: auto;
+  display: table;
 }
